@@ -18,7 +18,6 @@ open class EntityNotFoundException(val msg: String) : RuntimeException(msg)
  * Concreción de la clase EntityNotFoundException, indicando que la búsqueda de una entidad
  * no ha sido satisfactoria y debemos devolver un código 404
  */
-@ResponseStatus(HttpStatus.NOT_FOUND)
 data class SingleEntityNotFoundException(
     val id: String,
     val javaClass: Class<out Any>
@@ -28,7 +27,6 @@ data class SingleEntityNotFoundException(
  * Concreción de la clase EntityNotFoundException, indicando que la búsqueda de conjunto de entidades
  * no ha sido satisfactoria y debemos devolver un código 404
  */
-@ResponseStatus(HttpStatus.NOT_FOUND)
 data class ListEntityNotFoundException(
     val javaClass: Class<out Any>
 ) : EntityNotFoundException("No se pueden encontrar elementos del tipo ${javaClass.name} para esa consulta")

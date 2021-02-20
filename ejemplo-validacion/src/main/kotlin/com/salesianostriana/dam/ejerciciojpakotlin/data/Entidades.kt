@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull
 
 @Entity
 class Categoria(
-    @get:NotBlank(message="{categoria.nombre.blank}") var nombre: String,
+    @field:NotBlank(message="{categoria.nombre.blank}") var nombre: String,
     @get:URL var urlImagen: String,
     @ManyToOne var padre: Categoria? = null,
     @Id @GeneratedValue val id : Long? = null
