@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "6d85d328-05bf-4710-a167-5f047daa5053",
+		"name": "SeriesTVJWT",
+		"description": "REST API for TV Series",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Jwt",
+			"item": [
+				{
+					"name": "POST Nuevo usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"luismi\",\n\t\"password\": \"12345\",\n\t\"password2\": \"12345\",\n\t\"fullName\": \"Luis Miguel López Magaña\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"luismi\",\n\t\"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMDVjYTM1NS0zYWVmLTQ0OWQtODYzZi01NzVlOWQ0ZjVkZjQiLCJleHAiOjE1OTAzOTE0NzQsImlhdCI6MTU4OTUyNzQ3NCwicmVmcmVzaCI6dHJ1ZX0.KEtPnZnVxvJ1VVUNT5jU9MB1UFiTbB7D_H6g5m3nHeBd6L3VX8dQIOXt_52P9TVPUl7ItTHT-V2fT60MtlJc1g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/auth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET Todas las series",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/series/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"series",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Todas las series con capítulos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/series/capitulos",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"series",
+						"capitulos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Nueva Serie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"Hunters\",\n\t\"fechaEstreno\": \"21/02/2020\",\n\t\"plataforma\": \"AMAZON\",\n\t\"numeroTemporadas\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/series/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"series",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Editar una serie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"Hunters\",\n\t\"fechaEstreno\": \"22/02/2020\",\n\t\"plataforma\": \"AMAZON\",\n\t\"numeroTemporadas\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/series/ce64301d-4071-4ad3-a80a-10f1c7b6c358",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"series",
+						"ce64301d-4071-4ad3-a80a-10f1c7b6c358"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Eliminar una serie (y sus capítulos)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/series/a920cf2e-a437-418f-b436-68d52bf71efd",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"series",
+						"a920cf2e-a437-418f-b436-68d52bf71efd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
